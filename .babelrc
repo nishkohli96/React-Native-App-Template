@@ -1,0 +1,24 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "cwd": "babelrc",
+                "root": ["./src"],
+                "extensions": [".js", ".ios.js", ".android.js"],
+                "alias": {
+                    "@app":"./app",
+                    "@fonts": "./app/assets/fonts",
+                    "@images": "./app/assets/images",
+                    "@themes": "./app/assets/themes",
+                    "@components": "./app/components",
+                    "@styledComps": "./app/components/styled-components",
+                    "@context": "./app/context",
+                    "@i18next": "./app/i18n",
+                    "@screens": "./app/screens",
+                    "@utils": "./app/utils"
+                }
+            }
+        ]
+    ]
+}

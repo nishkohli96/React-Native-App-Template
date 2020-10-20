@@ -1,0 +1,29 @@
+{
+    "APP": {
+        "version": "v : {{appVersion}}"
+    },
+    "DRAWER": {
+        "home": "होम",
+        "profile": "प्रोफ़ाइल",
+        "notifications": "सूचनाएं",
+        "settings": "सैटिंग",
+        "help": "सहायता और समर्थन"
+    },
+    "SETTINGS": {
+        "darkTheme": "डार्क थीम",
+        "language": "भाषा",
+        "changeLang": "भाषा बदलें"
+    },
+    "SSO": {
+        "ssoGoogle": "Google से साइन इन करें",
+        "ssoFacebook": "Facebook से साइन इन करें"
+    },
+    "TABS": {
+        "home": "होम",
+        "updates": "अपडेट",
+        "profile": "प्रोफ़ाइल"
+    },
+    "USER": {
+        "hiuser": "नमस्ते {{userName}}"
+    }
+}

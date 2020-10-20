@@ -1,0 +1,37 @@
+import styled from 'styled-components/native';
+import { CommonStyles } from '@themes/CommonStyles';
+
+export const ThemedView = styled.View`
+    backgroundColor: ${(props) => props.theme.colors.background};
+`;
+
+export const ThemedHeader = styled.View`
+    backgroundColor: ${(props) => props.theme.colors.header};
+    borderBottomWidth: 0.3px;
+    borderBottomColor: silver;
+`;
+
+export const ThemedContainer = styled.View`
+    backgroundColor: ${(props) => props.theme.colors.background};
+    display: flex;
+    flex: 1;
+    paddingLeft: 15px;
+    paddingRight: 15px;
+`;
+
+export const ThemedText = styled.Text`
+    color: ${(props) => props.theme.colors.text};
+    fontSize: ${CommonStyles.text};
+    fontFamily: Piazzolla-Light;
+`;
+
+export const ThemedHeaderText = styled.Text`
+    color: ${(props) => props.theme.colors.text};
+    fontSize: ${CommonStyles.header};
+    fontFamily: Piazzolla-Bold;
+    marginLeft: 40px
+`;
+
+export const ThemedStatusBar = styled.StatusBar`
+    backgroundColor: ${(props) => props.theme.colors.header};
+`;

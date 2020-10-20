@@ -1,0 +1,29 @@
+{
+    "APP": {
+        "version": "v : {{appVersion}}"
+    },
+    "DRAWER": {
+        "home": "Home",
+        "profile": "Profile",
+        "notifications": "Notifications",
+        "settings": "Settings",
+        "help": "Help & Support"
+    },
+    "SETTINGS": {
+        "darkTheme": "Dark Theme",
+        "language": "Language",
+        "changeLang": "Change Language"
+    },
+    "SSO": {
+        "ssoGoogle": "Sign in with Google",
+        "ssoFacebook": "Sign in with Facebook"
+    },
+    "TABS": {
+        "home": "Home",
+        "updates": "Updates",
+        "profile": "Profile"
+    },
+    "USER": {
+        "hiuser": "Hi {{userName}}"
+    }
+}

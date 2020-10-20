@@ -1,0 +1,29 @@
+{
+    "APP": {
+        "version": "v : {{appVersion}}"
+    },
+    "DRAWER": {
+        "home": "Accueil",
+        "profile": "Profil",
+        "notifications": "Notifications",
+        "settings": "Réglages",
+        "help": "Support d'aide"
+    },
+    "SETTINGS": {
+        "darkTheme": "Thème sombre",
+        "language": "Langue",
+        "changeLang": "Changer de langue"
+    },
+    "SSO": {
+        "ssoGoogle": "Connectez Google",
+        "ssoFacebook": "Connectez Facebook"
+    },
+    "TABS": {
+        "home": "Accueil",
+        "updates": "Updmises à jourates",
+        "profile": "Profil"
+    },
+    "USER": {
+        "hiuser": "Salut {{userName}}"
+    }
+}
