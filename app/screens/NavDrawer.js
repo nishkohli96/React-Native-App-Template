@@ -42,7 +42,7 @@ const NavDrawer = () => {
         <Drawer.Navigator
             initialRouteName="HomeScreen"
             overlayColor="transparent"
-            drawerContent={(props) => <DrawerLayout {...props} />}
+            drawerContent={() => <DrawerLayout />}
         >
             <Drawer.Screen name="HomeScreen" component={HomeScreen} />
             <Drawer.Screen

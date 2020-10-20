@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import {
+    GoogleSignin,
+    statusCodes,
+} from '@react-native-community/google-signin';
+import { useNetInfo } from '@react-native-community/netinfo';
+import { Snackbar } from 'react-native-paper';
+
 import {
     ThemedView,
     ThemedContainer,
@@ -8,32 +15,12 @@ import {
 } from '@styledComps/ThemedComps';
 import { CommonStyles } from '@themes/CommonStyles';
 import { GoogleSignOut, FacebookSSO } from '@utils/SSO';
-import {
-    GoogleSignin,
-    statusCodes,
-} from '@react-native-community/google-signin';
+
 
 const Login = () => {
     const { t } = useTranslation('common');
-
-    const GoogleSign = async () => {
-        try {
-            await GoogleSignin.hasPlayServices();
-            const res = await GoogleSignin.signIn();
-            console.log('token ', res);
-        } catch (error) {
-            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                // user cancelled the login flow
-                console.log('canceled');
-            } else if (error.code === statusCodes.IN_PROGRESS) {
-                console.log('in progress');
-            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                console.log('no play services');
-            } else {
-                console.log('err ', error);
-            }
-        }
-    };
+    const netInfo = useNetInfo();
+    const [visible, setVisible] = useState(false);
 
     React.useEffect(() => {
         GoogleSignin.configure({
@@ -54,6 +41,33 @@ const Login = () => {
         });
     }, []);
 
+    const CheckConnection = () => {
+        const conn = netInfo.isConnected;
+        if(!conn){
+            setVisible(true);
+        }
+        return true;
+    }
+
+    const GoogleSign = async () => {
+        try {
+            await GoogleSignin.hasPlayServices();
+            const res = await GoogleSignin.signIn();
+            console.log('token ', res);
+        } catch (error) {
+            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+                // user cancelled the login flow
+                console.log('canceled');
+            } else if (error.code === statusCodes.IN_PROGRESS) {
+                console.log('in progress');
+            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+                console.log('no play services');
+            } else {
+                console.log('err ', error);
+            }
+        }
+    };
+
     return (
         <ThemedContainer style={styles.container}>
             <TouchableOpacity onPress={() => GoogleSign()}>
@@ -67,8 +81,8 @@ const Login = () => {
                     </ThemedText>
                 </ThemedView>
             </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => GoogleSignOut()}>
+            {/* GoogleSignOut */}
+            <TouchableOpacity onPress={() => CheckConnection()}>
                 <ThemedView style={styles.ssoBtn}>
                     <Image
                         source={require('../assets/images/icons8-google.png')}
@@ -89,6 +103,16 @@ const Login = () => {
                     </ThemedText>
                 </ThemedView>
             </TouchableOpacity>
+
+            <Snackbar
+                visible={visible}
+                duration = {3000}
+                onDismiss={() => setVisible(false)}
+                style={styles.snackbar}
+            >
+                Please Check your Internet Connection
+            </Snackbar>
+
         </ThemedContainer>
     );
 };
@@ -122,6 +146,11 @@ const styles = StyleSheet.create({
         marginTop: 5,
         color: '#181a18',
     },
+    snackbar: {
+        bottom: 40,
+        borderRadius: 10,
+        opacity: 0.8,
+    }
 });
 
 export default Login;

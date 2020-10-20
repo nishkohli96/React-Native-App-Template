@@ -14,14 +14,12 @@ const DrawerHeader = () => {
 
     const styles = StyleSheet.create({
         container: {
-            height: 50,
-            paddingTop: 10,
-            paddingBottom: 10,
-            paddingLeft: 20,
+            height: CommonStyles.headerComp.height,
+            paddingTop: CommonStyles.headerComp.paddingTop,
+            paddingBottom: CommonStyles.headerComp.paddingBottom,
+            paddingLeft: CommonStyles.headerComp.paddingLeft,
             textAlign: 'center',
             flexDirection: 'row',
-            // borderBottomColor: `${Theme.colors.border}`,
-            // borderBottomWidth: 0.5,
         },
     });
 

@@ -10,14 +10,14 @@ import { ThemedText, ThemedContainer } from '@styledComps/ThemedComps';
 import { ThemeContext } from '@context/ThemeContext';
 import { CommonStyles } from '@themes/CommonStyles';
 
-const DrawerLayout = (props) => {
+const DrawerLayout = () => {
     const navigation = useNavigation();
     const { t } = useTranslation('common');
     const { Theme } = useContext(ThemeContext);
 
     return (
         <ThemedContainer style={styles.container}>
-            <DrawerContentScrollView {...props}>
+            <DrawerContentScrollView >
                 <View style={styles.drawerContent}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Login')}

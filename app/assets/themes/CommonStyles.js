@@ -7,5 +7,11 @@ export const CommonStyles = {
     headerIcon: 30,
     avatarIcon: 50,
     settingsText: 20,
-    ssoIcons: 35
+    ssoIcons: 35,
+    headerComp: {
+        height: 60,
+        paddingTop: 15,
+        paddingBottom: 15,
+        paddingLeft: 20,
+    }
 };
