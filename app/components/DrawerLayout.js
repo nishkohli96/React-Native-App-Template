@@ -19,12 +19,19 @@ const DrawerLayout = () => {
     const uname = user.name? user.name.split(' ')[0] : 'Guest';
     const avatarURL = user.avatarURL;
 
+    const userPage = () => {
+        if(!user.email){
+            navigation.navigate('Login');
+        }
+        navigation.navigate('UserDetails')
+    }
+
     return (
         <ThemedContainer style={styles.container}>
             <DrawerContentScrollView>
                 <View style={styles.drawerContent}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Login')}
+                        onPress={() => userPage()}
                     >
                         <View style={styles.userInfoSection}>
                             <View style={styles.avatarView} >

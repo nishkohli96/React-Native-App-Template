@@ -29,7 +29,7 @@ export const ThemedHeaderText = styled.Text`
     color: ${(props) => props.theme.colors.text};
     fontSize: ${CommonStyles.header};
     fontFamily: Piazzolla-Bold;
-    marginLeft: 40px
+    marginLeft: ${CommonStyles.headerComp.marginLeft};
 `;
 
 export const ThemedStatusBar = styled.StatusBar`
