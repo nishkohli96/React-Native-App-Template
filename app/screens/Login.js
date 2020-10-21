@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
@@ -7,6 +7,8 @@ import {
 } from '@react-native-community/google-signin';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { Snackbar } from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 import {
     ThemedView,
@@ -14,12 +16,14 @@ import {
     ThemedText,
 } from '@styledComps/ThemedComps';
 import { CommonStyles } from '@themes/CommonStyles';
-import { GoogleSignOut, FacebookSSO } from '@utils/SSO';
+import { GoogleSignOut } from '@utils/SSO';
+import { AuthContext } from '@context/AuthContext';
 
 const Login = () => {
     const { t } = useTranslation('common');
     const netInfo = useNetInfo();
     const [visible, setVisible] = useState(false);
+    const { setUser } = useContext(AuthContext);
 
     React.useEffect(() => {
         GoogleSignin.configure({
@@ -67,6 +71,39 @@ const Login = () => {
         }
     };
 
+    const SignInWithFB = async() => {
+        const result = await LoginManager.logInWithPermissions([
+            'public_profile',
+            'email',
+        ]);
+    
+        if (result.isCancelled) {
+            throw 'User cancelled the login process';
+        }
+    
+        const data = await AccessToken.getCurrentAccessToken();
+        if (!data) {
+            throw 'Something went wrong obtaining access token';
+        }
+    
+        const facebookCredential = auth.FacebookAuthProvider.credential(
+            data.accessToken
+        );
+        auth().signInWithCredential(facebookCredential);
+        auth().onAuthStateChanged(user => {
+            if (user != null) {
+                console.log(user);
+                const person = {
+                    name: user.displayName,
+                    email: user.email,
+                    avatarUR: user.photoURL
+                }
+                setUser(person);
+            }
+        });
+        
+    }
+
     return (
         <ThemedContainer style={styles.container}>
             <TouchableOpacity onPress={() => GoogleSign()}>
@@ -91,7 +128,7 @@ const Login = () => {
                 </ThemedView>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => FacebookSSO()}>
+            <TouchableOpacity onPress={() => SignInWithFB()}>
                 <ThemedView style={styles.ssoBtn}>
                     <Image
                         source={require('../assets/images/icons8-fb.png')}
