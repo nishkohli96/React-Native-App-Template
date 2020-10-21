@@ -22,8 +22,10 @@ const DrawerLayout = () => {
     const userPage = () => {
         if(!user.email){
             navigation.navigate('Login');
+        } 
+        else {
+            navigation.navigate('UserDetails');
         }
-        navigation.navigate('UserDetails')
     }
 
     return (

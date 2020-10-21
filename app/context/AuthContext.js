@@ -33,6 +33,7 @@ const AppAuthContext = ({ children }) => {
 
     const setNewUser = (user) => {
         changeUser(user);
+        AsyncStorage.setItem('UserCreds',JSON.stringify(user));
     }
 
     if(!user){
