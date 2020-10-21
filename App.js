@@ -10,7 +10,7 @@ const AppConfig = () => {
             <I18nextProvider i18n={geti18config()}>
                 <Index />
             </I18nextProvider>
-        // </AppThemeContext>
+        // </AppThemeContext> 
     );
 };
 
