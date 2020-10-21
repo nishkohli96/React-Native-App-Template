@@ -33,7 +33,7 @@ const DrawerHeader = () => {
             />
             <Icon
                 name="menu"
-                size={CommonStyles.headerIcon}
+                size={CommonStyles.headerComp.headerIcon}
                 color={Theme.colors.text}
                 onPress={() => navigation.openDrawer()}
             />

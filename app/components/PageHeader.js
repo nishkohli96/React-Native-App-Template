@@ -14,7 +14,7 @@ const DrawerHeader = ({ title }) => {
         <ThemedHeader style={styles.container}>
             <Icon
                 name="arrow-back"
-                size={CommonStyles.headerIcon}
+                size={CommonStyles.headerComp.headerIcon}
                 color={Theme.colors.text}
                 onPress={() => navigation.goBack()}
             />
