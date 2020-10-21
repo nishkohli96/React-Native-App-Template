@@ -8,12 +8,15 @@ import { useNavigation } from '@react-navigation/native';
 import packageJson from '../../package.json';
 import { ThemedText, ThemedContainer } from '@styledComps/ThemedComps';
 import { ThemeContext } from '@context/ThemeContext';
+import { AuthContext } from '@context/AuthContext';
 import { CommonStyles } from '@themes/CommonStyles';
 
 const DrawerLayout = () => {
     const navigation = useNavigation();
     const { t } = useTranslation('common');
     const { Theme } = useContext(ThemeContext);
+    const { user } = useContext(AuthContext);
+    const uname = user.name? user.name.split(' ')[0] : 'Guest';
 
     return (
         <ThemedContainer style={styles.container}>
@@ -36,7 +39,7 @@ const DrawerLayout = () => {
                                 >
                                     <ThemedText style={styles.title}>
                                         {t('USER.hiuser', {
-                                            userName: 'Guest',
+                                            userName: uname,
                                         })}
                                     </ThemedText>
                                 </View>
