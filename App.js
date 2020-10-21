@@ -7,9 +7,9 @@ import { AppThemeContext } from '@context/ThemeContext';
 const AppConfig = () => {
     return (
         // <AppThemeContext>
-        <I18nextProvider i18n={geti18config()}>
-            <Index />
-        </I18nextProvider>
+            <I18nextProvider i18n={geti18config()}>
+                <Index />
+            </I18nextProvider>
         // </AppThemeContext>
     );
 };
