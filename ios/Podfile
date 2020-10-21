@@ -12,6 +12,8 @@ target 'rnAppTemplate' do
 
   pod 'RNGoogleSignin', :path => '../node_modules/@react-native-community/google-signin'
 
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   target 'rnAppTemplateTests' do
     inherit! :complete
     # Pods for testing
