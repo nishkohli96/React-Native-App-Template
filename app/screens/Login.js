@@ -175,8 +175,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     ssoIcon: {
-        width: CommonStyles.ssoIcons,
-        height: CommonStyles.ssoIcons,
+        width: CommonStyles.icons.ssoIcons,
+        height: CommonStyles.icons.ssoIcons,
     },
     ssoLabel: {
         marginLeft: 30,

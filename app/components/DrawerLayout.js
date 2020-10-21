@@ -37,7 +37,7 @@ const DrawerLayout = () => {
                             <View style={styles.avatarView} >
                                 <Avatar.Image
                                     source={{ uri: avatarURL }}
-                                    size={CommonStyles.avatarIcon}
+                                    size={CommonStyles.icons.avatarIcon}
                                 />
                                 <View
                                     style={styles.userTextView}
@@ -58,7 +58,7 @@ const DrawerLayout = () => {
                                 <Icon
                                     name="md-home-outline"
                                     color={Theme.colors.text}
-                                    size={CommonStyles.drawerIcons}
+                                    size={CommonStyles.icons.drawerIcons}
                                 />
                             )}
                             label={() => (
@@ -73,7 +73,7 @@ const DrawerLayout = () => {
                                 <Icon
                                     name="person-outline"
                                     color={Theme.colors.text}
-                                    size={CommonStyles.drawerIcons}
+                                    size={CommonStyles.icons.drawerIcons}
                                 />
                             )}
                             label={() => (
@@ -88,7 +88,7 @@ const DrawerLayout = () => {
                                 <Icon
                                     name="notifications-outline"
                                     color={Theme.colors.text}
-                                    size={CommonStyles.drawerIcons}
+                                    size={CommonStyles.icons.drawerIcons}
                                 />
                             )}
                             label={() => (
@@ -105,7 +105,7 @@ const DrawerLayout = () => {
                                 <Icon
                                     name="settings-outline"
                                     color={Theme.colors.text}
-                                    size={CommonStyles.drawerIcons}
+                                    size={CommonStyles.icons.drawerIcons}
                                 />
                             )}
                             label={() => (
@@ -120,7 +120,7 @@ const DrawerLayout = () => {
                                 <Icon
                                     name="chatbox-ellipses-outline"
                                     color={Theme.colors.text}
-                                    size={CommonStyles.drawerIcons}
+                                    size={CommonStyles.icons.drawerIcons}
                                 />
                             )}
                             label={() => (

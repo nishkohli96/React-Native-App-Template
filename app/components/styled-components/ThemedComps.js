@@ -28,7 +28,7 @@ export const ThemedSubContainer = styled.View`
 
 export const ThemedText = styled.Text`
     color: ${(props) => props.theme.colors.text};
-    fontSize: ${CommonStyles.text};
+    fontSize: ${CommonStyles.texts.text};
     fontFamily: Piazzolla-Light;
 `;
 

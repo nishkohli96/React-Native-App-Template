@@ -28,7 +28,7 @@ const Settings = () => {
                         <Icon
                             name="palette"
                             color="#d6bd8b"
-                            size={CommonStyles.tabIcons}
+                            size={CommonStyles.icons.tabIcons}
                         />
                     </ThemedView>
                     <ThemedView style={styles.itemText}>
@@ -55,7 +55,7 @@ const Settings = () => {
                             <Icon
                                 name="alphabetical-variant"
                                 color="#8c3146"
-                                size={CommonStyles.tabIcons}
+                                size={CommonStyles.icons.tabIcons}
                             />
                         </ThemedView>
                         <ThemedView style={styles.itemText}>
@@ -67,7 +67,7 @@ const Settings = () => {
                             <Icon
                                 name="chevron-right"
                                 color={Theme.colors.border}
-                                size={CommonStyles.tabIcons}
+                                size={CommonStyles.icons.tabIcons}
                             />
                         </ThemedView>
                     </ThemedView>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: CommonStyles.settingsText,
+        fontSize: CommonStyles.texts.settingsText,
     },
 });
 

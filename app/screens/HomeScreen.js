@@ -52,7 +52,7 @@ const HomeScreen = () => {
                         <Icon
                             name="home"
                             color="#3156c4"
-                            size={CommonStyles.tabIcons}
+                            size={CommonStyles.icons.tabIcons}
                         />
                     ),
                     // tabBarColor: 'crimson',
@@ -67,7 +67,7 @@ const HomeScreen = () => {
                         <Icon
                             name="bell"
                             color="#32a84e"
-                            size={CommonStyles.tabIcons}
+                            size={CommonStyles.icons.tabIcons}
                         />
                     ),
                 }}
@@ -81,7 +81,7 @@ const HomeScreen = () => {
                         <Icon
                             name="account"
                             color="#c43140"
-                            size={CommonStyles.tabIcons}
+                            size={CommonStyles.icons.tabIcons}
                         />
                     ),
                 }}
