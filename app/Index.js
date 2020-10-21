@@ -10,14 +10,6 @@ import { View, Text } from 'react-native';
 
 const Stack = createStackNavigator();
 
-// const ScreenNav = () => {
-//     return (
-//         <AppThemeContext>
-//             <NavDrawer/>
-//         </AppThemeContext>
-//     );
-// };
-
 const Index = () => {
     const [firstScreen, setFirstScreen] = useState(null);
 
@@ -38,6 +30,7 @@ const Index = () => {
     }
     return (
         <NavigationContainer>
+            <AppThemeContext>
             <Stack.Navigator initialRouteName={firstScreen}>
                 <Stack.Screen
                     name="IntroScreen"
@@ -50,6 +43,7 @@ const Index = () => {
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
+            </AppThemeContext>
         </NavigationContainer>
     );
 };
