@@ -17,7 +17,7 @@ const DrawerLayout = () => {
 
     return (
         <ThemedContainer style={styles.container}>
-            <DrawerContentScrollView >
+            <DrawerContentScrollView>
                 <View style={styles.drawerContent}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Login')}

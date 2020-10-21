@@ -16,7 +16,6 @@ import {
 import { CommonStyles } from '@themes/CommonStyles';
 import { GoogleSignOut, FacebookSSO } from '@utils/SSO';
 
-
 const Login = () => {
     const { t } = useTranslation('common');
     const netInfo = useNetInfo();
@@ -43,11 +42,11 @@ const Login = () => {
 
     const CheckConnection = () => {
         const conn = netInfo.isConnected;
-        if(!conn){
+        if (!conn) {
             setVisible(true);
         }
         return true;
-    }
+    };
 
     const GoogleSign = async () => {
         try {
@@ -106,13 +105,12 @@ const Login = () => {
 
             <Snackbar
                 visible={visible}
-                duration = {3000}
+                duration={3000}
                 onDismiss={() => setVisible(false)}
                 style={styles.snackbar}
             >
                 Please Check your Internet Connection
             </Snackbar>
-
         </ThemedContainer>
     );
 };
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
         bottom: 40,
         borderRadius: 10,
         opacity: 0.8,
-    }
+    },
 });
 
 export default Login;
