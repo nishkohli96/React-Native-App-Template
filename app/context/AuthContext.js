@@ -5,8 +5,8 @@ const AuthContext = React.createContext();
 const dummyUser = {
     name: 'Guest',
     email: null,
-    avatarURL: null
-}
+    avatarURL: null,
+};
 
 const AppAuthContext = ({ children }) => {
     const [user, changeUser] = useState(null);
@@ -21,23 +21,23 @@ const AppAuthContext = ({ children }) => {
     // });
 
     useEffect(() => {
-        const getUser = async() => {
+        const getUser = async () => {
             const userCreds = await AsyncStorage.getItem('UserCreds');
-            if(!userCreds){
-                AsyncStorage.setItem('UserCreds',JSON.stringify(dummyUser));
+            if (!userCreds) {
+                AsyncStorage.setItem('UserCreds', JSON.stringify(dummyUser));
             }
             changeUser(JSON.parse(userCreds));
-        }
+        };
         getUser();
     }, [user]);
 
     const setNewUser = (user) => {
         changeUser(user);
-        AsyncStorage.setItem('UserCreds',JSON.stringify(user));
-    }
+        AsyncStorage.setItem('UserCreds', JSON.stringify(user));
+    };
 
-    if(!user){
-        return <></>
+    if (!user) {
+        return <></>;
     }
 
     return (

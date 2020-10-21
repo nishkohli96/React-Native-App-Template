@@ -10,4 +10,3 @@ export default class IntroScreen1 extends Component {
         );
     }
 }
-

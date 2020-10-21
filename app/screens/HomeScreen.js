@@ -17,14 +17,14 @@ const Tab = createMaterialBottomTabNavigator();
 const HomeScreen = () => {
     const { Theme } = useContext(ThemeContext);
     const { t } = useTranslation('common');
-    
-    const styles =  StyleSheet.create({
+
+    const styles = StyleSheet.create({
         barStyles: {
             backgroundColor: Theme.colors.header,
             padding: 5,
             borderTopWidth: 0.3,
             borderTopColor: 'silver',
-        }
+        },
     });
 
     const InitialScreen = () => {

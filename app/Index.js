@@ -35,12 +35,12 @@ const Index = () => {
                 <AppThemeContext>
                     <Stack.Navigator initialRouteName={firstScreen}>
                         <Stack.Screen
-                            name='IntroScreen'
+                            name="IntroScreen"
                             component={IntroScreen}
                             options={{ headerShown: false }}
                         />
                         <Stack.Screen
-                            name='NavDrawer'
+                            name="NavDrawer"
                             component={NavDrawer}
                             options={{ headerShown: false }}
                         />

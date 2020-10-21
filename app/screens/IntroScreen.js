@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 250,
-        height: 250
-    }
+        height: 250,
+    },
 });
 
 export default IntroScreen;

@@ -73,38 +73,37 @@ const Login = () => {
         }
     };
 
-    const SignInWithFB = async() => {
+    const SignInWithFB = async () => {
         const result = await LoginManager.logInWithPermissions([
             'public_profile',
             'email',
         ]);
-    
+
         if (result.isCancelled) {
             throw 'User cancelled the login process';
         }
-    
+
         const data = await AccessToken.getCurrentAccessToken();
         if (!data) {
             throw 'Something went wrong obtaining access token';
         }
-    
+
         const facebookCredential = auth.FacebookAuthProvider.credential(
             data.accessToken
         );
         auth().signInWithCredential(facebookCredential);
-        auth().onAuthStateChanged(user => {
+        auth().onAuthStateChanged((user) => {
             if (user != null) {
                 const person = {
                     name: user.displayName,
                     email: user.email,
-                    avatarURL: user.photoURL
-                }
+                    avatarURL: user.photoURL,
+                };
                 setUser(person);
                 navigation.navigate('HomeScreen');
             }
         });
-        
-    }
+    };
 
     return (
         <ThemedContainer style={styles.container}>

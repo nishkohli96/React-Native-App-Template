@@ -25,16 +25,16 @@ const AppThemeContext = ({ children }) => {
             return () => null;
         };
         setCurrentTheme();
-    }, [theme,themeStr,dark]);
+    }, [theme, themeStr, dark]);
 
     const ThemeObj = ({ children }) => {
-        if(!theme){
-            return {children};
+        if (!theme) {
+            return { children };
         }
         return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
     };
-    if(!theme){
-        return <></>
+    if (!theme) {
+        return <></>;
     }
     return (
         <ThemeContext.Provider

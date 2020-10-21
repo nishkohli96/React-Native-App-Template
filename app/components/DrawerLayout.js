@@ -16,34 +16,29 @@ const DrawerLayout = () => {
     const { t } = useTranslation('common');
     const { Theme } = useContext(ThemeContext);
     const { user } = useContext(AuthContext);
-    const uname = user.name? user.name.split(' ')[0] : 'Guest';
+    const uname = user.name ? user.name.split(' ')[0] : 'Guest';
     const avatarURL = user.avatarURL;
 
     const userPage = () => {
-        if(!user.email){
+        if (!user.email) {
             navigation.navigate('Login');
-        } 
-        else {
-    navigation.navigate('UserDetails');
+        } else {
+            navigation.navigate('UserDetails');
         }
-    }
+    };
 
     return (
         <ThemedContainer style={styles.container}>
             <DrawerContentScrollView>
                 <View style={styles.drawerContent}>
-                    <TouchableOpacity
-                        onPress={() => userPage()}
-                    >
+                    <TouchableOpacity onPress={() => userPage()}>
                         <View style={styles.userInfoSection}>
-                            <View style={styles.avatarView} >
+                            <View style={styles.avatarView}>
                                 <Avatar.Image
                                     source={{ uri: avatarURL }}
                                     size={CommonStyles.icons.avatarIcon}
                                 />
-                                <View
-                                    style={styles.userTextView}
-                                >
+                                <View style={styles.userTextView}>
                                     <ThemedText style={styles.title}>
                                         {t('USER.hiuser', {
                                             userName: uname,
@@ -161,9 +156,9 @@ const styles = StyleSheet.create({
     userInfoSection: {
         paddingLeft: 20,
     },
-    avatarView: { 
-        flexDirection: 'row', 
-        marginTop: 15 
+    avatarView: {
+        flexDirection: 'row',
+        marginTop: 15,
     },
     title: {
         fontSize: 25,

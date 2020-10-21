@@ -23,12 +23,10 @@ const NavDrawer = () => {
 
     function NotificationsScreen() {
         return (
-            <View
-                style={StyleSheet.notifView}
-            >
+            <View style={StyleSheet.notifView}>
                 <Button
                     onPress={() => navigation.goBack()}
-                    title='Go back home'
+                    title="Go back home"
                 />
             </View>
         );
@@ -36,22 +34,22 @@ const NavDrawer = () => {
 
     return (
         <Drawer.Navigator
-            initialRouteName='HomeScreen'
-            overlayColor='transparent'
+            initialRouteName="HomeScreen"
+            overlayColor="transparent"
             drawerContent={() => <DrawerLayout />}
         >
-            <Drawer.Screen name='HomeScreen' component={HomeScreen} />
+            <Drawer.Screen name="HomeScreen" component={HomeScreen} />
             <Drawer.Screen
-                name='Notifications'
+                name="Notifications"
                 component={NotificationsScreen}
             />
-            <Drawer.Screen name='IntroScreen1' component={IntroScreen1} />
-            <Drawer.Screen name='IntroScreen2' component={IntroScreen2} />
-            <Drawer.Screen name='IntroScreen3' component={IntroScreen3} />
-            <Drawer.Screen name='Login' component={Login} />
-            <Drawer.Screen name='UserDetails' component={UserDetails} />
-            <Drawer.Screen name='Settings' component={Settings} />
-            <Drawer.Screen name='ChangeLang' component={ChangeLang} />
+            <Drawer.Screen name="IntroScreen1" component={IntroScreen1} />
+            <Drawer.Screen name="IntroScreen2" component={IntroScreen2} />
+            <Drawer.Screen name="IntroScreen3" component={IntroScreen3} />
+            <Drawer.Screen name="Login" component={Login} />
+            <Drawer.Screen name="UserDetails" component={UserDetails} />
+            <Drawer.Screen name="Settings" component={Settings} />
+            <Drawer.Screen name="ChangeLang" component={ChangeLang} />
         </Drawer.Navigator>
     );
 };
@@ -61,6 +59,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    }
-})
+    },
+});
 export default NavDrawer;
