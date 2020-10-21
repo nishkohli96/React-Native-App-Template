@@ -24,7 +24,7 @@ const DrawerLayout = () => {
             navigation.navigate('Login');
         } 
         else {
-            navigation.navigate('UserDetails');
+    navigation.navigate('UserDetails');
         }
     }
 
