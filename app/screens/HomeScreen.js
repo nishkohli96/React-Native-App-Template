@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text } from 'react-native';
@@ -16,6 +17,15 @@ const Tab = createMaterialBottomTabNavigator();
 const HomeScreen = () => {
     const { Theme } = useContext(ThemeContext);
     const { t } = useTranslation('common');
+    
+    const styles =  StyleSheet.create({
+        barStyles: {
+            backgroundColor: Theme.colors.header,
+            padding: 5,
+            borderTopWidth: 0.3,
+            borderTopColor: 'silver',
+        }
+    });
 
     const InitialScreen = () => {
         return (
@@ -29,12 +39,7 @@ const HomeScreen = () => {
     return (
         <Tab.Navigator
             initialRouteName="Feed"
-            barStyle={{
-                backgroundColor: Theme.colors.header,
-                padding: 5,
-                borderTopWidth: 0.3,
-                borderTopColor: 'silver',
-            }}
+            barStyle={styles.barStyles}
             shifting={false} // inactive tabs label won't show
             backBehavior="order"
         >

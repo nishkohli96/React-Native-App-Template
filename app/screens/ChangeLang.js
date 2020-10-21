@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from '@context/ThemeContext';
 import {
     ThemedView,
     ThemedText,

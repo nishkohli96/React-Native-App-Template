@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { ThemedText, ThemedContainer } from '@styledComps/ThemedComps';
 
 export default class IntroScreen1 extends Component {
@@ -12,4 +11,3 @@ export default class IntroScreen1 extends Component {
     }
 }
 
-const styles = StyleSheet.create({});

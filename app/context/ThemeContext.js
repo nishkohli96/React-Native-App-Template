@@ -6,7 +6,7 @@ const ThemeContext = React.createContext();
 
 const AppThemeContext = ({ children }) => {
     const [theme, setTheme] = useState(null);
-    const [themeStr, setThemeStr] = useState('');
+    const [themeStr, setThemeStr] = useState(null);
     const [dark, setDarkMode] = useState(false);
 
     const setNewTheme = async () => {

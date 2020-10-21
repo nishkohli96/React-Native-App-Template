@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, StyleSheet, StatusBar } from 'react-native';
+import { Text, Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Onboarding from 'react-native-onboarding-swiper';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -32,7 +32,7 @@ const IntroScreen = () => {
         return (
             <Image
                 source={require('../assets/images/hi.png')}
-                style={{ width: 250, height: 250 }}
+                style={styles.image}
             />
         );
     };
@@ -96,6 +96,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'Piazzolla-Bold',
     },
+    image: {
+        width: 250,
+        height: 250
+    }
 });
 
 export default IntroScreen;

@@ -23,9 +23,7 @@ const DrawerLayout = () => {
                         onPress={() => navigation.navigate('Login')}
                     >
                         <View style={styles.userInfoSection}>
-                            <View
-                                style={{ flexDirection: 'row', marginTop: 15 }}
-                            >
+                            <View style={styles.avatarView} >
                                 <Avatar.Image
                                     source={{
                                         uri:
@@ -34,10 +32,7 @@ const DrawerLayout = () => {
                                     size={CommonStyles.avatarIcon}
                                 />
                                 <View
-                                    style={{
-                                        marginLeft: 15,
-                                        flexDirection: 'column',
-                                    }}
+                                    style={styles.userTextView}
                                 >
                                     <ThemedText style={styles.title}>
                                         {t('USER.hiuser', {
@@ -156,6 +151,10 @@ const styles = StyleSheet.create({
     userInfoSection: {
         paddingLeft: 20,
     },
+    avatarView: { 
+        flexDirection: 'row', 
+        marginTop: 15 
+    },
     title: {
         fontSize: 25,
         marginTop: 8,
@@ -164,6 +163,10 @@ const styles = StyleSheet.create({
     caption: {
         fontSize: 14,
         lineHeight: 14,
+    },
+    userTextView: {
+        marginLeft: 15,
+        flexDirection: 'column',
     },
     row: {
         marginTop: 20,
