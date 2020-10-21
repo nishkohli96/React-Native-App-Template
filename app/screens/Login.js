@@ -9,6 +9,8 @@ import { useNetInfo } from '@react-native-community/netinfo';
 import { Snackbar } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import AsyncStorage from '@react-native-community/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     ThemedView,
@@ -24,6 +26,7 @@ const Login = () => {
     const netInfo = useNetInfo();
     const [visible, setVisible] = useState(false);
     const { setUser } = useContext(AuthContext);
+    const navigation = useNavigation();
 
     React.useEffect(() => {
         GoogleSignin.configure({
@@ -92,13 +95,14 @@ const Login = () => {
         auth().signInWithCredential(facebookCredential);
         auth().onAuthStateChanged(user => {
             if (user != null) {
-                console.log(user);
                 const person = {
                     name: user.displayName,
                     email: user.email,
-                    avatarUR: user.photoURL
+                    avatarURL: user.photoURL
                 }
                 setUser(person);
+                AsyncStorage.setItem('UserCreds',JSON.stringify(person));
+                navigation.navigate('HomeScreen');
             }
         });
         

@@ -17,6 +17,7 @@ const DrawerLayout = () => {
     const { Theme } = useContext(ThemeContext);
     const { user } = useContext(AuthContext);
     const uname = user.name? user.name.split(' ')[0] : 'Guest';
+    const avatarURL = user.avatarURL;
 
     return (
         <ThemedContainer style={styles.container}>
@@ -28,10 +29,7 @@ const DrawerLayout = () => {
                         <View style={styles.userInfoSection}>
                             <View style={styles.avatarView} >
                                 <Avatar.Image
-                                    source={{
-                                        uri:
-                                            'https://api.adorable.io/avatars/50/abott@adorable.png',
-                                    }}
+                                    source={{ uri: avatarURL }}
                                     size={CommonStyles.avatarIcon}
                                 />
                                 <View
