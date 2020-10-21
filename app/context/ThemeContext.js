@@ -9,10 +9,6 @@ const AppThemeContext = ({ children }) => {
     const [themeStr, setThemeStr] = useState('');
     const [dark, setDarkMode] = useState(false);
 
-    const ThemeObj = ({ children }) => {
-        return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-    };
-
     const setNewTheme = async () => {
         await changeTheme().then((res) => {
             setThemeStr(res.themeItem);
@@ -29,6 +25,10 @@ const AppThemeContext = ({ children }) => {
         };
         setCurrentTheme();
     }, [themeStr]);
+
+    const ThemeObj = ({ children }) => {
+        return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+    };
 
     return (
         <ThemeContext.Provider
