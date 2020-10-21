@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View } from 'react-native';
+import { Button, View, StyleSheet } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,11 +23,7 @@ const NavDrawer = () => {
     function NotificationsScreen() {
         return (
             <View
-                style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
+                style={StyleSheet.notifView}
             >
                 <Button
                     onPress={() => navigation.goBack()}
@@ -58,4 +54,11 @@ const NavDrawer = () => {
     );
 };
 
+const styles = StyleSheet.create({
+    notifView: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+})
 export default NavDrawer;
