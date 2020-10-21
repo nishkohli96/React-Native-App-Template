@@ -5,7 +5,7 @@ import { getAppTheme, changeTheme } from '@utils/Themeutils';
 const ThemeContext = React.createContext();
 
 const AppThemeContext = ({ children }) => {
-    const [theme, setTheme] = useState({});
+    const [theme, setTheme] = useState(null);
     const [themeStr, setThemeStr] = useState('');
     const [dark, setDarkMode] = useState(false);
 
@@ -16,20 +16,26 @@ const AppThemeContext = ({ children }) => {
     };
 
     useEffect(() => {
-        const setCurrentTheme = async () => {
-            await getAppTheme().then((res) => {
+        const setCurrentTheme = () => {
+            getAppTheme().then((res) => {
                 setTheme(res.currentTheme);
                 setThemeStr(res.themeItem);
                 setDarkMode(res.dark);
             });
+            return () => null;
         };
         setCurrentTheme();
-    }, [themeStr]);
+    }, [theme,themeStr,dark]);
 
     const ThemeObj = ({ children }) => {
+        if(!theme){
+            return {children};
+        }
         return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
     };
-
+    if(!theme){
+        return <></>
+    }
     return (
         <ThemeContext.Provider
             value={{
