@@ -23,7 +23,7 @@ const NavDrawer = () => {
 
     function NotificationsScreen() {
         return (
-            <View style={StyleSheet.notifView}>
+            <View style={styles.notifView}>
                 <Button
                     onPress={() => navigation.goBack()}
                     title="Go back home"

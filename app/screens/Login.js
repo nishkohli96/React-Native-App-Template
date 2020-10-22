@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Image, TouchableOpacity, TextInput  } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 
 import { useTranslation } from 'react-i18next';
@@ -45,7 +45,6 @@ const Login = () => {
             offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
             // hostedDomain: '', // specifies a hosted domain restriction
             // loginHint: '', // [iOS] The user's ID, or email address, to be prefilled in the authentication UI if possible. [See docs here](https://developers.google.com/identity/sign-in/ios/api/interface_g_i_d_sign_in.html#a0a68c7504c31ab0b728432565f6e33fd)
-            // forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
             // accountName: '', // [Android] specifies an account name on the device that should be used
             // iosClientId: '<FROM DEVELOPER CONSOLE>', // [iOS] optional, if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
         });
@@ -54,7 +53,7 @@ const Login = () => {
         // setPhoneNo(null);
         // setOtpVis(false);
         // }
-    },[]);
+    }, []);
 
     const CheckConnection = () => {
         const conn = netInfo.isConnected;
@@ -77,7 +76,6 @@ const Login = () => {
             };
             setUser(person);
             navigation.navigate('HomeScreen');
-
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
                 // user cancelled the login flow
@@ -97,7 +95,7 @@ const Login = () => {
         if (res) {
             SignInWithFB();
         } else {
-            setTimeout(() => setVisible(false), 3000);
+            // setTimeout(() => setVisible(false), 3000);
         }
     };
 
@@ -106,7 +104,7 @@ const Login = () => {
         if (res) {
             GoogleSign();
         } else {
-            setTimeout(() => setVisible(false), 3000);
+            // setTimeout(() => setVisible(false), 3000);
         }
     };
 
@@ -142,6 +140,10 @@ const Login = () => {
         });
     };
 
+    /*  Some issues with Phonenum, even after entering correct code, it still shows
+        invalid code
+        https://rnfirebase.io/auth/phone-auth
+    */
     async function signInWithPhoneNumber() {
         setOtpVis(true);
         const confirmation = await auth().signInWithPhoneNumber(phoneno);
@@ -153,79 +155,52 @@ const Login = () => {
             await auth().confirmCode(code);
         } catch (error) {
             console.log('Invalid code.');
-        }
-        finally {
+        } finally {
             setPhoneNo(null);
             setCode(null);
             setOtpVis(false);
         }
     }
 
-    const OTPView = () => {
-        if(!otpVis){
-            return <></>;
-        }
-        return (
-            <></>
-            // <ThemedView>
-            //     <TextInput
-            //         placeholder = {t('SSO.enterOTP')}
-            //         value = {code}
-            //         onChangeText = {(text) => setCode(text)}
-            //         style = {styles.textInput}
-            //     />
-
-            //     <Button
-            //         style = {styles.btn}
-            //         mode = 'outlined'
-            //         color = 'tomato'
-            //         onPress = {() => confirmCode()}
-            //     >
-            //         {t('SSO.submitOTP')}
-            //     </Button>
-            // </ThemedView>
-        );
-    }
-
     return (
         <ThemedContainer style={styles.container}>
             <ThemedView style={styles.otpView}>
                 <TextInput
-                    placeholder = {t('SSO.enterPhone')}
-                    value = {phoneno}
-                    onChangeText = {(text) => setPhoneNo(text)}
-                    style = {styles.textInput}
-                    editable = {!otpVis}
+                    placeholder={t('SSO.enterPhone')}
+                    value={phoneno}
+                    onChangeText={(text) => setPhoneNo(text)}
+                    style={styles.textInput}
+                    editable={!otpVis}
+                    autoCompleteType={'tel'}
                 />
 
                 <Button
-                    style = {styles.btn}
-                    color = 'tomato'
-                    mode = 'outlined'
-                    onPress = {() => signInWithPhoneNumber()}
+                    style={styles.btn}
+                    color="tomato"
+                    mode="outlined"
+                    onPress={() => signInWithPhoneNumber()}
                 >
                     {t('SSO.getOTP')}
                 </Button>
 
                 <ThemedView>
-                <TextInput
-                    placeholder = {t('SSO.enterOTP')}
-                    value = {code}
-                    onChangeText = {(text) => setCode(text)}
-                    style = {styles.textInput}
-                    editable = {otpVis}
-                />
+                    <TextInput
+                        placeholder={t('SSO.enterOTP')}
+                        value={code}
+                        onChangeText={(text) => setCode(text)}
+                        style={styles.textInput}
+                        editable={otpVis}
+                    />
 
-                <Button
-                    style = {styles.btn}
-                    mode = 'outlined'
-                    color = 'tomato'
-                    onPress = {() => confirmCode()}
-                >
-                    {t('SSO.submitOTP')}
-                </Button>
-            </ThemedView>
-
+                    <Button
+                        style={styles.btn}
+                        mode="outlined"
+                        color="tomato"
+                        onPress={() => confirmCode()}
+                    >
+                        {t('SSO.submitOTP')}
+                    </Button>
+                </ThemedView>
             </ThemedView>
 
             <TouchableOpacity onPress={() => GoogleSSO()}>
@@ -258,8 +233,8 @@ const Login = () => {
                 onDismiss={() => setVisible(false)}
                 style={styles.snackbar}
                 action={{
-                    label: 'Undo',
-                    onPress: () => setVisible(false)
+                    label: 'Ok',
+                    onPress: () => setVisible(false),
                 }}
             >
                 {t('SSO.connection')}
@@ -275,7 +250,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     otpView: {
-        marginBottom: 50
+        marginBottom: 50,
     },
     btn: {
         borderColor: 'tomato',
@@ -314,11 +289,10 @@ const styles = StyleSheet.create({
         width: 300,
         height: 60,
         marginBottom: 20,
-        marginTop:20,
+        marginTop: 20,
         borderWidth: 0.5,
         borderRadius: 5,
-    }
-
+    },
 });
 
 export default Login;
