@@ -16,7 +16,7 @@
     },
     "SSO": {
         "connection": "S'il vous plait, vérifiez votre connexion internet",
-        "enterPhone": "Entrez le numéro de téléphone",
+        "enterPhone": "Entrez téléphone (Avec code de pays)",
         "enterOTP": "Entrez OTP",
         "getOTP":"Obtenez OTP",
         "submitOTP": "Soumettre",

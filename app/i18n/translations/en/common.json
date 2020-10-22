@@ -16,7 +16,7 @@
     },
     "SSO": {
         "connection": "Please Check your Internet Connection",
-        "enterPhone": "Enter Phone Number",
+        "enterPhone": "Enter Phone Number(With Country Code)",
         "enterOTP": "Enter OTP",
         "getOTP":"Get OTP",
         "submitOTP": "Submit",

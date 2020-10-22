@@ -28,7 +28,7 @@ const UserDetails = () => {
 
     return (
         <ThemedContainer>
-            <PageHeader title="My Profile" />
+            <PageHeader title='My Profile' />
             <ThemedSubContainer>
                 <ThemedView style={styles.avatarView}>
                     <Avatar.Image
@@ -40,7 +40,7 @@ const UserDetails = () => {
                     <ThemedView style={styles.btnView}>
                         <Button
                             title={t('SSO.signOut')}
-                            color="tomato"
+                            color='tomato'
                             onPress={() => SignOut()}
                         />
                     </ThemedView>

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import { StyleSheet, Image, TouchableOpacity, TextInput  } from 'react-native';
+import { Button } from 'react-native-paper';
 
 import { useTranslation } from 'react-i18next';
 import {
@@ -50,7 +50,12 @@ const Login = () => {
             // accountName: '', // [Android] specifies an account name on the device that should be used
             // iosClientId: '<FROM DEVELOPER CONSOLE>', // [iOS] optional, if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
         });
-    }, []);
+        // return() => {
+        // setCode(null);
+        // setPhoneNo(null);
+        // setOtpVis(false);
+        // }
+    },[]);
 
     const CheckConnection = () => {
         const conn = netInfo.isConnected;
@@ -130,8 +135,9 @@ const Login = () => {
         });
     };
 
-    async function signInWithPhoneNumber(phoneNumber) {
-        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+    async function signInWithPhoneNumber() {
+        const confirmation = await auth().signInWithPhoneNumber(phoneno);
+        setOtpVis(true);
         setConfirm(confirmation);
     }
 
@@ -144,23 +150,28 @@ const Login = () => {
     }
 
     const OTPView = () => {
+        if(!otpVis){
+            return <></>;
+        }
         return (
-            <ThemedView>
-                <TextInput
-                    underlineColor="#d1d156"
-                    label={t('SSO.enterOTP')}
-                    value={code}
-                    onChangeText={(text) => setCode(text)}
-                    style={styles.textInput}
-                />
+            <></>
+            // <ThemedView>
+            //     <TextInput
+            //         placeholder = {t('SSO.enterOTP')}
+            //         value = {code}
+            //         onChangeText = {(text) => setCode(text)}
+            //         style = {styles.textInput}
+            //     />
 
-                <Button
-                    title={t('SSO.submitOTP')}
-                    style={styles.btn}
-                    color="tomato"
-                    onPress={() => SignOut()}
-                />
-            </ThemedView>
+            //     <Button
+            //         style = {styles.btn}
+            //         mode = 'outlined'
+            //         color = 'tomato'
+            //         onPress = {() => confirmCode()}
+            //     >
+            //         {t('SSO.submitOTP')}
+            //     </Button>
+            // </ThemedView>
         );
     }
 
@@ -168,21 +179,40 @@ const Login = () => {
         <ThemedContainer style={styles.container}>
             <ThemedView style={styles.otpView}>
                 <TextInput
-                    underlineColor="#d1d156"
-                    label={t('SSO.enterPhone')}
-                    value={phoneno}
-                    onChangeText={(text) => setPhoneNo(text)}
-                    style={styles.textInput}
+                    placeholder = {t('SSO.enterPhone')}
+                    value = {phoneno}
+                    onChangeText = {(text) => setPhoneNo(text)}
+                    style = {styles.textInput}
+                    editable = {!otpVis}
                 />
 
                 <Button
-                    title={t('SSO.getOTP')}
-                    style={styles.btn}
-                    color="tomato"
-                    onPress={() => SignOut()}
+                    style = {styles.btn}
+                    color = 'tomato'
+                    mode = 'outlined'
+                    onPress = {() => signInWithPhoneNumber()}
+                >
+                    {t('SSO.getOTP')}
+                </Button>
+
+                <ThemedView>
+                <TextInput
+                    placeholder = {t('SSO.enterOTP')}
+                    value = {code}
+                    onChangeText = {(text) => setCode(text)}
+                    style = {styles.textInput}
+                    editable = {otpVis}
                 />
 
-                { <OTPView/> && otpVis }
+                <Button
+                    style = {styles.btn}
+                    mode = 'outlined'
+                    color = 'tomato'
+                    onPress = {() => confirmCode()}
+                >
+                    {t('SSO.submitOTP')}
+                </Button>
+            </ThemedView>
 
             </ThemedView>
 
@@ -215,6 +245,10 @@ const Login = () => {
                 duration={3000}
                 onDismiss={() => setVisible(false)}
                 style={styles.snackbar}
+                action={{
+                    label: 'Undo',
+                    onPress: () => setVisible(false)
+                }}
             >
                 {t('SSO.connection')}
             </Snackbar>
@@ -230,6 +264,9 @@ const styles = StyleSheet.create({
     },
     otpView: {
         marginBottom: 50
+    },
+    btn: {
+        borderColor: 'tomato',
     },
     ssoBtn: {
         display: 'flex',
@@ -267,6 +304,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop:20,
         borderWidth: 0.5,
+        borderRadius: 5,
     }
 
 });
