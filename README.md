@@ -17,5 +17,5 @@ Set your project environment using the following [link](https://reactnative.dev/
 -   Run this Command to generate the Key Hash and Paste the same in Android App
 
 ```
-keytool -exportcert -alias androiddebugkey -keystore "D:\React\ReactNative\rnAppTemplate\android\app\debug.keystore" | "C:\openssl-0.9.8k_X64\bin\openssl" sha1 -binary | "C:\openssl-0.9.8k_X64\bin\openssl" base64
+cd android && keytool -exportcert -alias androiddebugkey -keystore "D:\React\ReactNative\rnAppTemplate\android\app\debug.keystore" | "C:\openssl-0.9.8k_X64\bin\openssl" sha1 -binary | "C:\openssl-0.9.8k_X64\bin\openssl" base64
 ```
