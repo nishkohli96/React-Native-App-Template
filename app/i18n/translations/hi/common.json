@@ -16,6 +16,10 @@
     },
     "SSO": {
         "connection": "कृपया अपने इंटरनेट कनेक्शन की जाँच करें",
+        "enterPhone": "फोन नंबर दर्ज करें",
+        "enterOTP": "OTP दर्ज करें",
+        "getOTP":"OTP प्राप्त करें",
+        "submitOTP": "प्रस्तुत",
         "ssoGoogle": "Google से साइन इन करें",
         "ssoFacebook": "Facebook से साइन इन करें",
         "signOut": "प्रस्थान करें"

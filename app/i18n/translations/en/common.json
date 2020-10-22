@@ -16,6 +16,10 @@
     },
     "SSO": {
         "connection": "Please Check your Internet Connection",
+        "enterPhone": "Enter Phone Number",
+        "enterOTP": "Enter OTP",
+        "getOTP":"Get OTP",
+        "submitOTP": "Submit",
         "ssoGoogle": "Sign in with Google",
         "ssoFacebook": "Sign in with Facebook",
         "signOut": "Sign out"

@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
+import { TextInput } from 'react-native-paper';
+
 import { useTranslation } from 'react-i18next';
 import {
     GoogleSignin,
@@ -26,6 +28,10 @@ const Login = () => {
     const [visible, setVisible] = useState(false);
     const { setUser } = useContext(AuthContext);
     const navigation = useNavigation();
+    const [confirm, setConfirm] = useState(null);
+    const [code, setCode] = useState(null);
+    const [phoneno, setPhoneNo] = useState(null);
+    const [otpVis, setOtpVis] = useState(false);
 
     React.useEffect(() => {
         GoogleSignin.configure({
@@ -124,8 +130,62 @@ const Login = () => {
         });
     };
 
+    async function signInWithPhoneNumber(phoneNumber) {
+        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+        setConfirm(confirmation);
+    }
+
+    async function confirmCode() {
+        try {
+            await confirm.confirm(code);
+        } catch (error) {
+            console.log('Invalid code.');
+        }
+    }
+
+    const OTPView = () => {
+        return (
+            <ThemedView>
+                <TextInput
+                    underlineColor="#d1d156"
+                    label={t('SSO.enterOTP')}
+                    value={code}
+                    onChangeText={(text) => setCode(text)}
+                    style={styles.textInput}
+                />
+
+                <Button
+                    title={t('SSO.submitOTP')}
+                    style={styles.btn}
+                    color="tomato"
+                    onPress={() => SignOut()}
+                />
+            </ThemedView>
+        );
+    }
+
     return (
         <ThemedContainer style={styles.container}>
+            <ThemedView style={styles.otpView}>
+                <TextInput
+                    underlineColor="#d1d156"
+                    label={t('SSO.enterPhone')}
+                    value={phoneno}
+                    onChangeText={(text) => setPhoneNo(text)}
+                    style={styles.textInput}
+                />
+
+                <Button
+                    title={t('SSO.getOTP')}
+                    style={styles.btn}
+                    color="tomato"
+                    onPress={() => SignOut()}
+                />
+
+                { <OTPView/> && otpVis }
+
+            </ThemedView>
+
             <TouchableOpacity onPress={() => GoogleSSO()}>
                 <ThemedView style={styles.ssoBtn}>
                     <Image
@@ -135,16 +195,6 @@ const Login = () => {
                     <ThemedText style={styles.ssoLabel}>
                         {t('SSO.ssoGoogle')}
                     </ThemedText>
-                </ThemedView>
-            </TouchableOpacity>
-            {/* GoogleSignOut */}
-            <TouchableOpacity onPress={() => CheckConnection()}>
-                <ThemedView style={styles.ssoBtn}>
-                    <Image
-                        source={require('../assets/images/icons8-google.png')}
-                        style={styles.ssoIcon}
-                    />
-                    <ThemedText style={styles.ssoLabel}>Sign out</ThemedText>
                 </ThemedView>
             </TouchableOpacity>
 
@@ -176,6 +226,10 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
+    },
+    otpView: {
+        marginBottom: 50
     },
     ssoBtn: {
         display: 'flex',
@@ -186,7 +240,7 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         paddingTop: 15,
         paddingBottom: 15,
-        marginBottom: 15,
+        marginBottom: 20,
         borderRadius: 5,
         backgroundColor: '#ffffff',
     },
@@ -206,6 +260,15 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         opacity: 0.8,
     },
+    textInput: {
+        backgroundColor: '#ffffff',
+        width: 300,
+        height: 60,
+        marginBottom: 20,
+        marginTop:20,
+        borderWidth: 0.5,
+    }
+
 });
 
 export default Login;

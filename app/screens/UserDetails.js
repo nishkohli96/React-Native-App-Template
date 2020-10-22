@@ -40,7 +40,6 @@ const UserDetails = () => {
                     <ThemedView style={styles.btnView}>
                         <Button
                             title={t('SSO.signOut')}
-                            style={styles.btn}
                             color="tomato"
                             onPress={() => SignOut()}
                         />
