@@ -23,6 +23,7 @@ const Index = () => {
     });
 
     if (!firstScreen) {
+        /* Feel free to design a splash Screen for this part */
         return (
             <View>
                 <Text>App loading</Text>

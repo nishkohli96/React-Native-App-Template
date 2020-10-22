@@ -19,7 +19,6 @@ import {
     ThemedText,
 } from '@styledComps/ThemedComps';
 import { CommonStyles } from '@themes/CommonStyles';
-import { GoogleSignOut } from '@utils/SSO';
 import { AuthContext } from '@context/AuthContext';
 
 const Login = () => {
@@ -70,7 +69,6 @@ const Login = () => {
         try {
             await GoogleSignin.hasPlayServices();
             const res = await GoogleSignin.signIn();
-            console.log('token 12', res);
 
             const person = {
                 name: res.user.name,

@@ -4,7 +4,7 @@ import { Avatar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import { useTranslation } from 'react-i18next';
-
+import { GoogleSignin } from '@react-native-community/google-signin';
 import {
     ThemedContainer,
     ThemedSubContainer,
@@ -20,8 +20,20 @@ const UserDetails = () => {
     const navigation = useNavigation();
     const { t } = useTranslation('common');
 
-    const SignOut = () => {
-        auth().signOut();
+    const SignOut = async() => {
+        /* Different code for Google Sign out & Fb Sign Out. If signed in with Google,
+            execute try block, else execute catch block */
+        try {
+            await GoogleSignin.revokeAccess();
+            await GoogleSignin.signOut();
+        } catch (error) {
+            try {
+                auth().signOut();
+            }
+            catch(error){
+                console.log('no user signed in');
+            }
+        }
         setUser(dummyUser);
         navigation.navigate('HomeScreen');
     };
