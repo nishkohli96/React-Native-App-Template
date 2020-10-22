@@ -15,8 +15,10 @@
         "changeLang": "भाषा बदलें"
     },
     "SSO": {
+        "connection": "कृपया अपने इंटरनेट कनेक्शन की जाँच करें",
         "ssoGoogle": "Google से साइन इन करें",
-        "ssoFacebook": "Facebook से साइन इन करें"
+        "ssoFacebook": "Facebook से साइन इन करें",
+        "signOut": "प्रस्थान करें"
     },
     "TABS": {
         "home": "होम",

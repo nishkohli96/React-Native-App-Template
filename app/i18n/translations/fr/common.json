@@ -15,8 +15,10 @@
         "changeLang": "Changer de langue"
     },
     "SSO": {
+        "connection": "S'il vous plait, vérifiez votre connexion internet",
         "ssoGoogle": "Connectez Google",
-        "ssoFacebook": "Connectez Facebook"
+        "ssoFacebook": "Connectez Facebook",
+        "signOut": "Déconnexion"
     },
     "TABS": {
         "home": "Accueil",

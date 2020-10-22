@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { StyleSheet, Button } from 'react-native';
 import { Avatar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
+import { useTranslation } from 'react-i18next';
 
 import {
     ThemedContainer,
@@ -16,8 +18,10 @@ import { CommonStyles } from '@themes/CommonStyles';
 const UserDetails = () => {
     const { user, setUser } = useContext(AuthContext);
     const navigation = useNavigation();
+    const { t } = useTranslation('common');
 
     const SignOut = () => {
+        auth().signOut();
         setUser(dummyUser);
         navigation.navigate('HomeScreen');
     };
@@ -35,7 +39,7 @@ const UserDetails = () => {
 
                     <ThemedView style={styles.btnView}>
                         <Button
-                            title="SignOut"
+                            title={t('SSO.signOut')}
                             style={styles.btn}
                             color="tomato"
                             onPress={() => SignOut()}

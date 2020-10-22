@@ -15,8 +15,10 @@
         "changeLang": "Change Language"
     },
     "SSO": {
+        "connection": "Please Check your Internet Connection",
         "ssoGoogle": "Sign in with Google",
-        "ssoFacebook": "Sign in with Facebook"
+        "ssoFacebook": "Sign in with Facebook",
+        "signOut": "Sign out"
     },
     "TABS": {
         "home": "Home",

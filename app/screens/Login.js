@@ -50,6 +50,7 @@ const Login = () => {
         const conn = netInfo.isConnected;
         if (!conn) {
             setVisible(true);
+            return false;
         }
         return true;
     };
@@ -72,6 +73,26 @@ const Login = () => {
             }
         }
     };
+
+    const FbSSO = () => {
+        const res = CheckConnection();
+        if(res){
+            SignInWithFB();
+        }
+        else{
+            setTimeout(() => setVisible(false),3000);
+        }
+    }
+
+    const GoogleSSO = () => {
+        const res = CheckConnection();
+        if(res){
+            GoogleSign();
+        }
+        else{
+            setTimeout(() => setVisible(false),3000);
+        }
+    }
 
     const SignInWithFB = async () => {
         const result = await LoginManager.logInWithPermissions([
@@ -107,7 +128,7 @@ const Login = () => {
 
     return (
         <ThemedContainer style={styles.container}>
-            <TouchableOpacity onPress={() => GoogleSign()}>
+            <TouchableOpacity onPress={() => GoogleSSO()}>
                 <ThemedView style={styles.ssoBtn}>
                     <Image
                         source={require('../assets/images/icons8-google.png')}
@@ -129,7 +150,7 @@ const Login = () => {
                 </ThemedView>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => SignInWithFB()}>
+            <TouchableOpacity onPress={() => FbSSO()}>
                 <ThemedView style={styles.ssoBtn}>
                     <Image
                         source={require('../assets/images/icons8-fb.png')}
@@ -147,7 +168,7 @@ const Login = () => {
                 onDismiss={() => setVisible(false)}
                 style={styles.snackbar}
             >
-                Please Check your Internet Connection
+                {t('SSO.connection')}
             </Snackbar>
         </ThemedContainer>
     );
