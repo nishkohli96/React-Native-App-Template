@@ -76,23 +76,21 @@ const Login = () => {
 
     const FbSSO = () => {
         const res = CheckConnection();
-        if(res){
+        if (res) {
             SignInWithFB();
+        } else {
+            setTimeout(() => setVisible(false), 3000);
         }
-        else{
-            setTimeout(() => setVisible(false),3000);
-        }
-    }
+    };
 
     const GoogleSSO = () => {
         const res = CheckConnection();
-        if(res){
+        if (res) {
             GoogleSign();
+        } else {
+            setTimeout(() => setVisible(false), 3000);
         }
-        else{
-            setTimeout(() => setVisible(false),3000);
-        }
-    }
+    };
 
     const SignInWithFB = async () => {
         const result = await LoginManager.logInWithPermissions([
