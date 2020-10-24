@@ -15,7 +15,7 @@ Set your project environment using the following [link](https://reactnative.dev/
 -   Add [Firebase](https://rnfirebase.io/) to your App
 -   Resolve MultiDex error using this [link](https://developer.android.com/studio/build/multidex)
 -   [Initialize FB SDK](https://stackoverflow.com/questions/30213369/facebook-sdk-has-not-been-initialized-facebooksdk-sdkinitialize)
--   Run this Command to generate the Key Hash and Paste the same in Android App
+-   Run this Command to generate the Key Hash and Paste the same in Allowed fingerprints in Facebook Dev console
 
 ```
 cd android && keytool -exportcert -alias androiddebugkey -keystore "D:\React\ReactNative\rnAppTemplate\android\app\debug.keystore" | "C:\openssl-0.9.8k_X64\bin\openssl" sha1 -binary | "C:\openssl-0.9.8k_X64\bin\openssl" base64
