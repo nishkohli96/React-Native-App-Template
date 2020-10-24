@@ -12,6 +12,7 @@ import { Snackbar } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import { useNavigation } from '@react-navigation/native';
+import Config from 'react-native-config'; // Get data from .env file
 
 import {
     ThemedView,
@@ -27,7 +28,7 @@ const Login = () => {
     const [visible, setVisible] = useState(false);
     const { setUser } = useContext(AuthContext);
     const navigation = useNavigation();
-    const [confirm, setConfirm] = useState(null);
+    // const [confirm, setConfirm] = useState(null);
     const [code, setCode] = useState(null);
     const [phoneno, setPhoneNo] = useState(null);
     const [otpVis, setOtpVis] = useState(false);
@@ -40,8 +41,7 @@ const Login = () => {
                 //'https://www.googleapis.com/auth/userinfo.profile',
                 // 'https://www.googleapis.com/auth/drive.readonly',
             ],
-            webClientId:
-                '345766432797-emvv88t6hnf8cgn00sdgoc0u96ds6a2d.apps.googleusercontent.com',
+            webClientId: `${Config.GOOGLE_WEB_CLIENT_ID}`,
             offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
             // hostedDomain: '', // specifies a hosted domain restriction
             // loginHint: '', // [iOS] The user's ID, or email address, to be prefilled in the authentication UI if possible. [See docs here](https://developers.google.com/identity/sign-in/ios/api/interface_g_i_d_sign_in.html#a0a68c7504c31ab0b728432565f6e33fd)
@@ -147,7 +147,7 @@ const Login = () => {
     async function signInWithPhoneNumber() {
         setOtpVis(true);
         const confirmation = await auth().signInWithPhoneNumber(phoneno);
-        setConfirm(confirmation);
+        // setConfirm(confirmation);
     }
 
     async function confirmCode() {

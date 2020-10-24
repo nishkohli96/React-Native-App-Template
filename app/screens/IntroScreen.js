@@ -28,7 +28,7 @@ const IntroScreen = () => {
         );
     };
 
-    const PageImage = () => {
+    const PageImage = ({ color, dark }) => {
         return (
             <Image
                 source={require('../assets/images/hi.png')}

@@ -4,6 +4,7 @@ Set your project environment using the following [link](https://reactnative.dev/
 
 ### Development Steps
 
+-   Access all your .env file vars using this [Package](https://github.com/luggit/react-native-config/). Don't forget to do the "Extra Step for Android" as mentioned in the docs.
 -   Make sure the distributionUrl in gradle-wrapper.properties has version >= 6.3
 -   Generate your app Icon using [MakeAppIcon](https://makeappicon.com/)
 -   Read More about app icon setup on this [Link](https://aboutreact.com/react-native-change-app-icon/), also create a round icon on [AndroidAssetStudio](https://romannurik.github.io/AndroidAssetStudio/), rename as icon_launcher_round and paste in android icons folder

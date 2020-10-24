@@ -16,6 +16,7 @@ app/i18n/translations
 .prettierrc
 .watchmanconfig
 .babelrc
+.env
 
 app.json
 babel.config.js

@@ -15,10 +15,12 @@ const Index = () => {
     const [firstScreen, setFirstScreen] = useState(null);
 
     AsyncStorage.getItem('firstTime').then((item) => {
-        if (item) {
-            setFirstScreen('NavDrawer');
-        } else {
+        console.log('itm ', item);
+        if (!item) {
+            console.log('in this loop');
             setFirstScreen('IntroScreen');
+        } else {
+            setFirstScreen('NavDrawer');
         }
     });
 
