@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { DarkTheme } from '@themes/DarkTheme';
-import { LightTheme } from '@themes/LightTheme';
+import { DarkTheme } from '@Themes/DarkTheme';
+import { LightTheme } from '@Themes/LightTheme';
 
 let currentTheme, themeItem, dark;
 

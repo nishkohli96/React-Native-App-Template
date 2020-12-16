@@ -1,7 +1,7 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import Index from '@app/Index';
-import geti18config from '@i18next/i18config';
+import Index from '@App/Index';
+import geti18config from '@I18Next/i18config';
 
 const AppConfig = () => {
     return (

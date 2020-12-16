@@ -10,17 +10,17 @@ import {
     ThemedSubContainer,
     ThemedText,
     ThemedView,
-} from '@styledComps/ThemedComps';
-import { AuthContext, dummyUser } from '@context/AuthContext';
-import PageHeader from '@components/PageHeader';
-import { CommonStyles } from '@themes/CommonStyles';
+} from '@StyledComps/ThemedComps';
+import { AuthContext, dummyUser } from '@Context/AuthContext';
+import PageHeader from '@Components/PageHeader';
+import { CommonStyles } from '@Themes/CommonStyles';
 
 const UserDetails = () => {
     const { user, setUser } = useContext(AuthContext);
     const navigation = useNavigation();
     const { t } = useTranslation('common');
 
-    const SignOut = async() => {
+    const SignOut = async () => {
         /* Different code for Google Sign out & Fb Sign Out. If signed in with Google,
             execute try block, else execute catch block */
         try {
@@ -29,8 +29,7 @@ const UserDetails = () => {
         } catch (error) {
             try {
                 auth().signOut();
-            }
-            catch(error){
+            } catch (error) {
                 console.log('no user signed in');
             }
         }
@@ -40,7 +39,7 @@ const UserDetails = () => {
 
     return (
         <ThemedContainer>
-            <PageHeader title='My Profile' />
+            <PageHeader title="My Profile" />
             <ThemedSubContainer>
                 <ThemedView style={styles.avatarView}>
                     <Avatar.Image
@@ -52,7 +51,7 @@ const UserDetails = () => {
                     <ThemedView style={styles.btnView}>
                         <Button
                             title={t('SSO.signOut')}
-                            color='tomato'
+                            color="tomato"
                             onPress={() => SignOut()}
                         />
                     </ThemedView>

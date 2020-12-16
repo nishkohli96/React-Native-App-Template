@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { CommonStyles } from '@themes/CommonStyles';
+import { CommonStyles } from '@Themes/CommonStyles';
 
 export const ThemedView = styled.View`
     backgroundColor: ${(props) => props.theme.colors.background};

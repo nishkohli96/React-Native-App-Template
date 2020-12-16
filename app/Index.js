@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import IntroScreen from '@screens/IntroScreen';
-import NavDrawer from '@screens/NavDrawer';
-import { AppThemeContext } from '@context/ThemeContext';
-import { AppAuthContext } from '@context/AuthContext';
+import IntroScreen from '@Screens/IntroScreen';
+import NavDrawer from '@Screens/NavDrawer';
+import { AppThemeContext } from '@Context/ThemeContext';
+import { AppAuthContext } from '@Context/AuthContext';
 
 const Stack = createStackNavigator();
 

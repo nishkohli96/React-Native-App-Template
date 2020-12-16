@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import packageJson from '../../package.json';
-import { ThemedText, ThemedContainer } from '@styledComps/ThemedComps';
-import { ThemeContext } from '@context/ThemeContext';
-import { AuthContext } from '@context/AuthContext';
-import { CommonStyles } from '@themes/CommonStyles';
+import { ThemedText, ThemedContainer } from '@StyledComps/ThemedComps';
+import { ThemeContext } from '@Context/ThemeContext';
+import { AuthContext } from '@Context/AuthContext';
+import { CommonStyles } from '@Themes/CommonStyles';
 
 const DrawerLayout = () => {
     const navigation = useNavigation();

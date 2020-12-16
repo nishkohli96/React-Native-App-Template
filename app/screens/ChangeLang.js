@@ -6,9 +6,9 @@ import {
     ThemedView,
     ThemedText,
     ThemedContainer,
-} from '@styledComps/ThemedComps';
-import PageHeader from '@components/PageHeader';
-import { Languages, changeLang } from '@i18next/i18config';
+} from '@StyledComps/ThemedComps';
+import PageHeader from '@Components/PageHeader';
+import { Languages, changeLang } from '@I18Next/i18config';
 
 const ChangeLang = () => {
     const { i18n, t } = useTranslation('common');

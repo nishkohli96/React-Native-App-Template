@@ -4,9 +4,9 @@ import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import packageJson from '../../package.json';
 
-import { ThemedHeader, ThemedHeaderText } from '@styledComps/ThemedComps';
-import { ThemeContext } from '@context/ThemeContext';
-import { CommonStyles } from '@themes/CommonStyles';
+import { ThemedHeader, ThemedHeaderText } from '@StyledComps/ThemedComps';
+import { ThemeContext } from '@Context/ThemeContext';
+import { CommonStyles } from '@Themes/CommonStyles';
 
 const DrawerHeader = () => {
     const navigation = useNavigation();

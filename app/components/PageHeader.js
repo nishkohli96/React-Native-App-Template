@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
-import { ThemedHeader, ThemedHeaderText } from '@styledComps/ThemedComps';
-import { ThemeContext } from '@context/ThemeContext';
-import { CommonStyles } from '@themes/CommonStyles';
+import { ThemedHeader, ThemedHeaderText } from '@StyledComps/ThemedComps';
+import { ThemeContext } from '@Context/ThemeContext';
+import { CommonStyles } from '@Themes/CommonStyles';
 
 const DrawerHeader = ({ title }) => {
     const navigation = useNavigation();

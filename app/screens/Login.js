@@ -18,9 +18,9 @@ import {
     ThemedView,
     ThemedContainer,
     ThemedText,
-} from '@styledComps/ThemedComps';
-import { CommonStyles } from '@themes/CommonStyles';
-import { AuthContext } from '@context/AuthContext';
+} from '@StyledComps/ThemedComps';
+import { CommonStyles } from '@Themes/CommonStyles';
+import { AuthContext } from '@Context/AuthContext';
 
 const Login = () => {
     const { t } = useTranslation('common');

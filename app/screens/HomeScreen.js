@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text } from 'react-native';
-import { ThemeContext } from '@context/ThemeContext';
-import { CommonStyles } from '@themes/CommonStyles';
-import DrawerHeader from '@components/DrawerHeader';
-import IntroScreen1 from '@components/IntroScreen1';
-import IntroScreen2 from '@components/IntroScreen2';
-import IntroScreen3 from '@components/IntroScreen3';
+import { ThemeContext } from '@Context/ThemeContext';
+import { CommonStyles } from '@Themes/CommonStyles';
+import DrawerHeader from '@Components/DrawerHeader';
+import IntroScreen1 from '@Components/IntroScreen1';
+import IntroScreen2 from '@Components/IntroScreen2';
+import IntroScreen3 from '@Components/IntroScreen3';
 import { useTranslation } from 'react-i18next';
 
 const Tab = createMaterialBottomTabNavigator();

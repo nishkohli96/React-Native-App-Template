@@ -7,16 +7,16 @@
                 "root": ["./src"],
                 "extensions": [".js", ".ios.js", ".android.js"],
                 "alias": {
-                    "@app":"./app",
-                    "@fonts": "./app/assets/fonts",
-                    "@images": "./app/assets/images",
-                    "@themes": "./app/assets/themes",
-                    "@components": "./app/components",
-                    "@styledComps": "./app/components/styled-components",
-                    "@context": "./app/context",
-                    "@i18next": "./app/i18n",
-                    "@screens": "./app/screens",
-                    "@utils": "./app/utils"
+                    "@App":"./app",
+                    "@Fonts": "./app/assets/fonts",
+                    "@Images": "./app/assets/images",
+                    "@Themes": "./app/assets/themes",
+                    "@Components": "./app/components",
+                    "@StyledComps": "./app/components/styled-components",
+                    "@Context": "./app/context",
+                    "@I18Next": "./app/i18n",
+                    "@Screens": "./app/screens",
+                    "@Utils": "./app/utils"
                 }
             }
         ]

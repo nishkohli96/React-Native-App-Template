@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { getAppTheme, changeTheme } from '@utils/Themeutils';
+import { getAppTheme, changeTheme } from '@Utils/Themeutils';
 
 const ThemeContext = React.createContext();
 

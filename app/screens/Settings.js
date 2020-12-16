@@ -8,10 +8,10 @@ import {
     ThemedView,
     ThemedText,
     ThemedContainer,
-} from '@styledComps/ThemedComps';
-import PageHeader from '@components/PageHeader';
-import { CommonStyles } from '@themes/CommonStyles';
-import { ThemeContext } from '@context/ThemeContext';
+} from '@StyledComps/ThemedComps';
+import PageHeader from '@Components/PageHeader';
+import { CommonStyles } from '@Themes/CommonStyles';
+import { ThemeContext } from '@Context/ThemeContext';
 
 const Settings = () => {
     const { Theme, Dark, changeTheme } = React.useContext(ThemeContext);
