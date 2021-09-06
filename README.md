@@ -1,6 +1,6 @@
 # App-Template
 
-Set your project environment using the following [link](https://reactnative.dev/docs/environment-setup)
+**DEPRECATED:** Most of the packages used are either deprecated or outdated. Refer my [rn-template](https://github.com/nishkohli96/rn-template) repository for the latest working code for both Android & iOS. 
 
 ## Overview
 
@@ -8,6 +8,7 @@ A React-Native App Template (for the time being, Android only) with support for 
 
 ### Development Steps
 
+-   Set your project environment using the following [link](https://reactnative.dev/docs/environment-setup)
 -   Access all your .env file vars using this [Package](https://github.com/luggit/react-native-config/). Don't forget to do the "Extra Step for Android" as mentioned in the docs.
 -   Make sure the distributionUrl in gradle-wrapper.properties has version >= 6.3
 -   Generate your app Icon using [MakeAppIcon](https://makeappicon.com/)
